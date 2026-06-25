@@ -71,7 +71,7 @@ Brief advice on water intake, meal timing, and one lifestyle tip.
 Keep the language simple, warm, and encouraging. All meals should be realistic, affordable, and made from ingredients available across India.`;
 
     const completion = await groq.chat.completions.create({
-      model: process.env.GROQ_MODEL,
+      model: process.env.GROQ_MODEL || "llama3-8b-8192",
       messages: [
         {
           role: "system",
