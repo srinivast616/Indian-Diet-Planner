@@ -71,7 +71,7 @@ Brief advice on water intake, meal timing, and one lifestyle tip.
 Keep the language simple, warm, and encouraging. All meals should be realistic, affordable, and made from ingredients available across India.`;
 
     const completion = await groq.chat.completions.create({
-      model: process.env.GROQ_MODEL as string || "llama3-8b-8192",
+      model: "llama3-8b-8192",
       messages: [
         {
           role: "system",
@@ -83,8 +83,8 @@ Keep the language simple, warm, and encouraging. All meals should be realistic, 
           content: prompt,
         },
       ],
-        max_tokens: parseInt(process.env.GROQ_MAX_TOKENS || "2000"),
-        temperature: parseFloat(process.env.GROQ_TEMPERATURE || "0.7"),
+        max_tokens: 2000,
+        temperature: 0.7,
     });
 
     const result = completion.choices[0]?.message?.content;
